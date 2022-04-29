@@ -24,8 +24,9 @@ jobs:
         run: |
           yarn
           yarn build --base "https://halivert.dev/$SLUG/"
+
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@4.1.4
+        uses: JamesIves/github-pages-deploy-action@4.3.3
         with:
           branch: gh-pages
           folder: dist
