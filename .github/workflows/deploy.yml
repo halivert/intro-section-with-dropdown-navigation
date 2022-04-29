@@ -11,8 +11,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          persist-credentials: true
 
       - name: Cache node_modules
         uses: actions/setup-node@v3
@@ -30,5 +28,6 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
+          github_token: ${{ github.token }}
           branch: gh-pages
           folder: dist
