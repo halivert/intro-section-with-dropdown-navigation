@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import mobileImage from "@/assets/image-hero-mobile.png"
-import desktopImage from "@/assets/image-hero-desktop.png"
+import mobileImage from "@/assets/image-hero-mobile.png";
+import desktopImage from "@/assets/image-hero-desktop.png";
 
-import databiz from "@/assets/client-databiz.svg"
-import audiophile from "@/assets/client-audiophile.svg"
-import meet from "@/assets/client-meet.svg"
-import maker from "@/assets/client-maker.svg"
+import databiz from "@/assets/client-databiz.svg";
+import audiophile from "@/assets/client-audiophile.svg";
+import meet from "@/assets/client-meet.svg";
+import maker from "@/assets/client-maker.svg";
 
-const clients = [databiz, audiophile, meet, maker]
+const clients = [databiz, audiophile, meet, maker];
 </script>
 
 <template>
@@ -25,7 +25,7 @@ const clients = [databiz, audiophile, meet, maker]
       </p>
 
       <router-link class="button" :to="{ name: 'learn-more' }">
-        Learn More
+        Learn more
       </router-link>
 
       <div class="clients">
@@ -101,10 +101,22 @@ const clients = [databiz, audiophile, meet, maker]
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 0 6.5rem;
 
-    .button:hover {
-      background-color: var(--white);
-      color: var(--black);
+    h1 {
+      font-size: 4rem;
+      line-height: 1;
+    }
+
+    .button {
+      padding: 0.75rem 1.5rem;
+      font-weight: bold;
+      font-size: 0.9rem;
+
+      &:hover {
+        background-color: var(--white);
+        color: var(--black);
+      }
     }
 
     .mobile-image {
@@ -113,6 +125,16 @@ const clients = [databiz, audiophile, meet, maker]
 
     .hero {
       width: 40%;
+      text-align: left;
+    }
+
+    .tagline {
+      width: 80%;
+      margin: 2rem 0;
+    }
+
+    .clients {
+      margin-top: 5rem;
     }
 
     .desktop-image {
