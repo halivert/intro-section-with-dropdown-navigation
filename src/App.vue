@@ -3,13 +3,12 @@ import Navbar from "@/components/Navbar.vue"
 </script>
 
 <template>
-  <div>
-    <navbar />
-  </div>
+  <navbar />
+  <router-view class="content"></router-view>
 </template>
 
 <style lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Epilogue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700&display=swap");
 
 *,
 ::before,
@@ -29,21 +28,39 @@ html {
   overflow: hidden;
   width: 100vw;
   height: 100vh;
+  font-size: 18px;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
 }
 
-body {
+#app {
   height: 100vh;
   max-width: 100vw;
   width: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
-  font-size: 18px;
   font-family: "Epilogue", "sans-serif";
   background-color: var(--white);
   color: var(--black);
 }
 
-body.clipped {
-  overflow-y: hidden;
+.clipped {
+  #app {
+    overflow-y: hidden;
+  }
+}
+
+.content {
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+.section {
+  padding: 0 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--black);
 }
 </style>

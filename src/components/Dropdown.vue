@@ -29,12 +29,16 @@ const alignCalc = computed(() => {
 </script>
 
 <template>
-  <div
-    class="dropdown"
-    :class="{ 'is-open': isOpen }"
-    @click.stop="isOpen = !isOpen"
-  >
-    <span class="trigger">{{ text }}</span>
+  <div class="dropdown" :class="{ 'is-open': isOpen }">
+    <slot
+      name="trigger"
+      v-bind="{
+        close: () => (isOpen = false),
+        open: () => (isOpen = true),
+      }"
+    >
+      <span @click.stop="isOpen = !isOpen" class="trigger">{{ text }}</span>
+    </slot>
 
     <ul class="body">
       <li v-for="{ text, url, icon } in items" :key="url">

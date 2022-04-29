@@ -8,7 +8,7 @@ import todo from "@/assets/icon-todo.svg"
 import calendar from "@/assets/icon-calendar.svg"
 import reminders from "@/assets/icon-reminders.svg"
 import planning from "@/assets/icon-planning.svg"
-import Dropdown from "./Dropdown.vue"
+import Dropdown from "@/components/Dropdown.vue"
 
 const features = [
   { text: "Todo List", url: "/todo-list", icon: todo },
@@ -31,20 +31,20 @@ watch(isOpen, (open) => document.body.classList.toggle("clipped", open), {
 </script>
 
 <template>
-  <nav class="nav" :class="{ 'is-open': isOpen }">
+  <nav class="nav" :class="{ 'is-open': isOpen }" @click="isOpen = false">
     <div class="nav-logo">
       <router-link :to="{ name: 'home' }">
         <img :src="logo" />
       </router-link>
     </div>
 
-    <div class="nav-burguer" @click="isOpen = !isOpen">
+    <div class="nav-burguer" @click.stop="isOpen = !isOpen">
       <img :src="isOpen ? closeMenu : menu" />
     </div>
 
     <div class="nav-body">
       <div class="nav-start">
-        <dropdown class="nav-link" text="Features" :items="features" />
+        <dropdown text="Features" class="nav-link" :items="features" />
 
         <dropdown
           class="nav-link"
@@ -89,16 +89,18 @@ watch(isOpen, (open) => document.body.classList.toggle("clipped", open), {
   justify-content: space-between;
   position: relative;
   z-index: 1;
+  background-color: var(--white);
 
   &::before {
     transition: opacity var(--transition-duration) ease-in;
     content: "";
     position: absolute;
-    inset: 0;
     background: var(--black);
     opacity: 0;
+    inset: 0;
     width: 100vw;
     height: 100vh;
+    transform: translateX(100vw);
   }
 
   .nav-burguer {
@@ -107,6 +109,10 @@ watch(isOpen, (open) => document.body.classList.toggle("clipped", open), {
     margin: calc(-1 * var(--space));
     justify-self: flex-end;
     cursor: pointer;
+    z-index: 3;
+  }
+
+  .nav-logo {
     z-index: 1;
   }
 
@@ -124,6 +130,7 @@ watch(isOpen, (open) => document.body.classList.toggle("clipped", open), {
     padding: 1rem;
     padding-top: 4.75rem;
     transform: translateX(55vw);
+    z-index: 2;
   }
 
   .nav-body,
@@ -172,6 +179,7 @@ watch(isOpen, (open) => document.body.classList.toggle("clipped", open), {
   }
 
   &::before {
+    transform: translateX(0);
     opacity: 0.6;
   }
 }
