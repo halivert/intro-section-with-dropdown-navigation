@@ -43,6 +43,7 @@ watch(isOpen, (open) => document.body.classList.toggle("clipped", open), {
         :src="isOpen ? closeMenu : menu"
         aria-label="menu"
         aria-expanded="false"
+        alt=""
       />
     </div>
 

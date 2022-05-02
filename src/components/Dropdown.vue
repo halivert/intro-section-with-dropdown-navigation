@@ -44,7 +44,7 @@ const alignCalc = computed(() => {
       <li v-for="{ text, url, icon } in items" :key="url">
         <router-link :to="url">
           <span v-if="icon" class="icon" aria-hidden="true">
-            <img :src="icon" />
+            <img :src="icon" alt="" />
           </span>
           <span>{{ text }}</span>
         </router-link>
