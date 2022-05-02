@@ -34,12 +34,16 @@ watch(isOpen, (open) => document.body.classList.toggle("clipped", open), {
   <nav class="nav" :class="{ 'is-open': isOpen }" @click="isOpen = false">
     <div class="nav-logo">
       <router-link :to="{ name: 'home' }">
-        <img :src="logo" />
+        <img :src="logo" alt="Snap logo" />
       </router-link>
     </div>
 
-    <div class="nav-burguer" @click.stop="isOpen = !isOpen">
-      <img :src="isOpen ? closeMenu : menu" />
+    <div class="nav-burguer" @click.stop="isOpen = !isOpen" role="button">
+      <img
+        :src="isOpen ? closeMenu : menu"
+        aria-label="menu"
+        aria-expanded="false"
+      />
     </div>
 
     <div class="nav-body">

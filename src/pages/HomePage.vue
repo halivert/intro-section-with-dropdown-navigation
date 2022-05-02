@@ -1,19 +1,22 @@
 <script setup lang="ts">
-import mobileImage from "@/assets/image-hero-mobile.png";
-import desktopImage from "@/assets/image-hero-desktop.png";
+import mobileImage from "@/assets/image-hero-mobile.png"
+import desktopImage from "@/assets/image-hero-desktop.png"
 
-import databiz from "@/assets/client-databiz.svg";
-import audiophile from "@/assets/client-audiophile.svg";
-import meet from "@/assets/client-meet.svg";
-import maker from "@/assets/client-maker.svg";
+import databiz from "@/assets/client-databiz.svg"
+import audiophile from "@/assets/client-audiophile.svg"
+import meet from "@/assets/client-meet.svg"
+import maker from "@/assets/client-maker.svg"
 
-const clients = [databiz, audiophile, meet, maker];
+const clients = { databiz, audiophile, meet, maker }
 </script>
 
 <template>
   <div class="home">
     <div class="mobile-image">
-      <img :src="mobileImage" />
+      <img
+        :src="mobileImage"
+        alt="mobile background a guy with a pc in a hand writing with the other with a geometric background"
+      />
     </div>
 
     <div class="hero">
@@ -29,12 +32,20 @@ const clients = [databiz, audiophile, meet, maker];
       </router-link>
 
       <div class="clients">
-        <img v-for="image in clients" :key="image" :src="image" />
+        <img
+          v-for="(image, name) in clients"
+          :key="image"
+          :src="image"
+          :alt="`${name} client logo`"
+        />
       </div>
     </div>
 
     <div class="desktop-image">
-      <img :src="desktopImage" />
+      <img
+        :src="desktopImage"
+        alt="desktop background a guy with a pc in a hand writing with the other with a geometric background"
+      />
     </div>
   </div>
 </template>
