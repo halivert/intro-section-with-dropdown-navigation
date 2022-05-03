@@ -38,11 +38,7 @@ const routes = [
   })),
 ]
 
-let url = new URL("/")
-
-try {
-  url = new URL(import.meta.env.BASE_URL)
-} catch (e) {}
+const url = new URL(import.meta.env.BASE_URL)
 
 const router = createRouter({
   history: createWebHistory(url.pathname),
