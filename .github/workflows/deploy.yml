@@ -23,7 +23,7 @@ jobs:
           SLUG: intro-section-with-dropdown-navigation
         run: |
           yarn
-          yarn build --base "https://halivert.dev/$SLUG/"
+          yarn build --base "/$SLUG/"
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.3.3

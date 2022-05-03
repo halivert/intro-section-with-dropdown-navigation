@@ -38,10 +38,8 @@ const routes = [
   })),
 ]
 
-const url = new URL(import.meta.env.BASE_URL)
-
 const router = createRouter({
-  history: createWebHistory(url.pathname),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes,
 })
 
